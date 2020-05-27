@@ -1,0 +1,1 @@
+export const REGULAR_SPEED = 5
