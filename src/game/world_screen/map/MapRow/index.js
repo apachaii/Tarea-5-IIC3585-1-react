@@ -20,7 +20,7 @@ function MapRow(props) {
 }
 
 MapRow.propTypes = {
-  row: PropTypes.object.isRequired,
+  row: PropTypes.arrayOf(PropTypes.number).isRequired,
   current_level_info: PropTypes.object.isRequired,
 };
 
