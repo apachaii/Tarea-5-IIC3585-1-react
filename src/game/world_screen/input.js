@@ -135,7 +135,7 @@ export default function handle_input(world) {
         const new_tile_type = level_info.tiles[vertical_i][new_tiles.right_coord];
         const is_tile_traversable = find_tile_traversablility(level_info.used_tiles, new_tile_type);
         if (!is_tile_traversable) {
-          new_horizontal_position = (old_tiles.right_coordl+1)*TILE_SIZE-PLAYER_WIDTH + map_scroll;
+          new_horizontal_position = (old_tiles.right_coord+1)*TILE_SIZE-PLAYER_WIDTH + map_scroll;
           break;
         }
       }
