@@ -5,16 +5,20 @@ import handle_input from "./input";
 import Map from "./map"
 import Player from "./player"
 
+
+import {MAP_SCREEN_HEIGHT, MAP_SCREEN_WIDTH} from "./world_constants"
+
 function World_Screen() {
   return (
     <div
       style={{
-        background: "purple",
 
         position: "relative",
-        width: 800,
-        height: 400,
-        margin: "100px auto"
+        height: MAP_SCREEN_HEIGHT,
+        width: MAP_SCREEN_WIDTH,
+        margin: "100px auto",
+
+        overflow: "hidden",
       }}
     >
       <Map/>

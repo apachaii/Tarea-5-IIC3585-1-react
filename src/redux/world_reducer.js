@@ -4,7 +4,7 @@ const initialState = {
   level: 1,
 
   character_horizontal_position: 0,
-  character_vertical_position: 0,
+  character_vertical_position: 6*40,
   player_face_direction: 'right',
 
   map_scroll: 0,

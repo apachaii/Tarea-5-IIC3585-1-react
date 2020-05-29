@@ -1,16 +1,20 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { ReactComponent as Chasis } from "./chasis.svg"
-import { ReactComponent as Wheels } from "./wheels.svg"
+import {PLAYER_HEIGHT, PLAYER_HEIGHT_WIDTH_RATIO} from "../world_constants"
+
+import {ReactComponent as Chasis} from "./chasis.svg"
+import {ReactComponent as Wheels} from "./wheels.svg"
 
 const equipment_color = [
   "black",
   "white",
 ]
 
-const PLAYER_HEIGHT = 40;
-const PLAYER_HEIGHT_WIDTH_RATIO = 1.6;
+const faces_direction = {
+  "right": "scaleX(-1)",
+  "left": "scaleX(1)",
+}
 
 function Player(props) {
   const {
@@ -21,16 +25,13 @@ function Player(props) {
     equipped_wheels,
   } = props;
 
-  const face_direction = {
-    "right": -1,
-    "left": 1,
-  }[player_face_direction];
+  const face_direction = faces_direction[player_face_direction];
 
   const sprite_style = {
     position: "absolute",
     height: PLAYER_HEIGHT,
-    width: PLAYER_HEIGHT*PLAYER_HEIGHT_WIDTH_RATIO,
-    transform: `scaleX(${face_direction})`,
+    width: PLAYER_HEIGHT * PLAYER_HEIGHT_WIDTH_RATIO,
+    transform: face_direction,
   }
 
   const chasis_color = equipment_color[equipped_chasis];
