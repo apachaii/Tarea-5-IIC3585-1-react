@@ -8,7 +8,7 @@ import Player from "./player"
 
 import {MAP_SCREEN_HEIGHT, MAP_SCREEN_WIDTH} from "./world_constants"
 
-function World_Screen() {
+function WorldScreen() {
   return (
     <div
       style={{
@@ -27,4 +27,4 @@ function World_Screen() {
   )
 }
 
-export default handle_input(World_Screen)
+export default handle_input(WorldScreen)

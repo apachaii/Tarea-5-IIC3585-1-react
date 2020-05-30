@@ -1,8 +1,10 @@
 import {combineReducers, createStore} from "redux";
 import playerReducer from "./player_reducer";
 import worldReducer from "./world_reducer";
+import screenReducer from "./screen_reducer";
 
 const rootReducer = combineReducers({
+  screen: screenReducer,
   player: playerReducer,
   world: worldReducer,
 })

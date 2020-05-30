@@ -1,10 +1,10 @@
 import React from 'react';
-import WorldScreen from "./game/world_screen";
+import Game from "./game";
 
 function App() {
   return (
     <div>
-      <WorldScreen/>
+      <Game/>
     </div>
   );
 }

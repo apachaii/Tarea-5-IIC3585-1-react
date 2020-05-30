@@ -1,4 +1,4 @@
-export const REGULAR_SPEED = 10
+export const REGULAR_SPEED = 10;
 
 export const MAP_SCREEN_WIDTH = 800;
 export const MAP_SCREEN_HEIGHT = 520;
