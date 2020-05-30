@@ -31,26 +31,13 @@ function get_occupied_tiles(horizontal_position, vertical_position,) {
     right_coord,
   }
 }
-function find_tile_traversablility(used_tiles,tile_type) {
+function find_tile_traversability(used_tiles,tile_type) {
   if (used_tiles[tile_type]){
     return used_tiles[tile_type]?.traversable;
   }
   return true;
 }
 
-/*
-function get_tile_position(coord_position) {
-  return [~~(coord_position[0] / TILE_SIZE), ~~(coord_position[1] / TILE_SIZE)]
-}
-
-function is_tile_traversable(tile_position, level_info) {
-  const tile_type = level_info.tiles[tile_position[1]][tile_position[0]];
-  if (level_info.used_tiles[tile_type]){
-    return level_info.used_tiles[tile_type]?.traversable;
-  }
-  return true;
-}
-*/
 export default function handle_input(world) {
 
   const move_keys = [
@@ -124,7 +111,7 @@ export default function handle_input(world) {
     if (new_tiles.left_coord < old_tiles.left_coord) { // going to the left
       for (let vertical_i = new_tiles.upper_coord; vertical_i <= new_tiles.lower_coord; vertical_i++) {
         const new_tile_type = level_info.tiles[vertical_i][new_tiles.left_coord];
-        const is_tile_traversable = find_tile_traversablility(level_info.used_tiles, new_tile_type);
+        const is_tile_traversable = find_tile_traversability(level_info.used_tiles, new_tile_type);
         if (! is_tile_traversable) {
           new_horizontal_position = (old_tiles.left_coord)*TILE_SIZE + map_scroll;
           break;
@@ -133,7 +120,7 @@ export default function handle_input(world) {
     } else if (new_tiles.right_coord > old_tiles.right_coord){ // going to the right
       for (let vertical_i = new_tiles.upper_coord; vertical_i <= new_tiles.lower_coord; vertical_i++) {
         const new_tile_type = level_info.tiles[vertical_i][new_tiles.right_coord];
-        const is_tile_traversable = find_tile_traversablility(level_info.used_tiles, new_tile_type);
+        const is_tile_traversable = find_tile_traversability(level_info.used_tiles, new_tile_type);
         if (!is_tile_traversable) {
           new_horizontal_position = (old_tiles.right_coord+1)*TILE_SIZE-PLAYER_WIDTH + map_scroll;
           break;
@@ -144,7 +131,7 @@ export default function handle_input(world) {
     if (new_tiles.upper_coord < old_tiles.upper_coord){ // going upwards
       for (let horizontal_i = new_tiles.left_coord; horizontal_i <= new_tiles.right_coord; horizontal_i++) {
         const new_tile_type = level_info.tiles[new_tiles.upper_coord][horizontal_i];
-        const is_tile_traversable = find_tile_traversablility(level_info.used_tiles, new_tile_type);
+        const is_tile_traversable = find_tile_traversability(level_info.used_tiles, new_tile_type);
         if (!is_tile_traversable) {
           new_vertical_position = old_tiles.upper_coord*TILE_SIZE;
           break;
@@ -153,20 +140,21 @@ export default function handle_input(world) {
     } else if (new_tiles.lower_coord > old_tiles.lower_coord){ // going downwards
       for (let horizontal_i = new_tiles.left_coord; horizontal_i <= new_tiles.right_coord; horizontal_i++) {
         const new_tile_type = level_info.tiles[new_tiles.lower_coord][horizontal_i];
-        const is_tile_traversable = find_tile_traversablility(level_info.used_tiles, new_tile_type);
+        const is_tile_traversable = find_tile_traversability(level_info.used_tiles, new_tile_type);
         if (!is_tile_traversable) {
           new_vertical_position = (old_tiles.upper_coord+1)*TILE_SIZE-PLAYER_HEIGHT;
           break;
         }
       }
-
     }
 
     // if the new location is out of scroll change the scroll
-    const level_width = level_info.width
+    const level_width = level_info.width;
 
-    const passed_right_scroll_point = new_horizontal_position > RIGHT_SCROLL_START_POINT;
-    if (passed_right_scroll_point) {
+    const passed_right_scroll_point =
+      RIGHT_SCROLL_START_POINT < new_horizontal_position &&
+      old_horizontal_position < new_horizontal_position; // if moving left to right
+    if (passed_right_scroll_point ) {
       const left_stop_scrolling_point = level_width * TILE_SIZE - MAP_SCREEN_WIDTH * SCROLL_DISTANCE;
       if (real_new_horizontal_position <= left_stop_scrolling_point) {
         map_scroll -= new_horizontal_position - old_horizontal_position;
@@ -174,7 +162,9 @@ export default function handle_input(world) {
       }
     }
 
-    const passed_left_scroll_point = new_horizontal_position < LEFT_SCROLL_START_POINT;
+    const passed_left_scroll_point =
+      new_horizontal_position < LEFT_SCROLL_START_POINT &&
+      new_horizontal_position < old_horizontal_position; // if moving right to left
     if (passed_left_scroll_point) {
       const right_stop_scrolling_point = MAP_SCREEN_WIDTH * SCROLL_DISTANCE;
       if (real_new_horizontal_position >= right_stop_scrolling_point) {
@@ -182,8 +172,6 @@ export default function handle_input(world) {
         new_horizontal_position = old_horizontal_position;
       }
     }
-
-
 
     let payload = {
       map_scroll: map_scroll,
