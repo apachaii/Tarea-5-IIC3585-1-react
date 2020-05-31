@@ -11,6 +11,7 @@ import {
   TILE_SIZE,
 } from "./world_constants";
 import get_level from "./levels"
+import {WORLD_SCREEN} from "../screen_constants";
 
 
 const RIGHT_SCROLL_START_POINT = MAP_SCREEN_WIDTH * (1 - SCROLL_DISTANCE);
@@ -49,13 +50,25 @@ export default function handle_input(world) {
 
   function movement(key) {
 
+    const state = store.getState()
+
+    const {
+      screen
+    } = state.screen;
+
+    if (screen !== WORLD_SCREEN){
+      return
+    }
+
     let {
       level,
       character_horizontal_position: old_horizontal_position,
       character_vertical_position: old_vertical_position,
       player_face_direction,
       map_scroll,
-    } = store.getState().world;
+    } = state.world;
+
+
 
     const level_info = get_level(level);
 

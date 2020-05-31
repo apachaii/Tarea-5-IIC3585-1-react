@@ -6,6 +6,10 @@ import {
   PLAYER_VERTICAL_POSITION
 } from "../battle_constants";
 
+import CarSprite from "../../../general_components/CarSprite";
+
+const battleFaceDirection = "right";
+
 function PlayerBox() {
   return (
     <div
@@ -17,11 +21,13 @@ function PlayerBox() {
         marginTop: BATTLE_BOX_VERTICAL_POSITION,
         marginLeft: PLAYER_VERTICAL_POSITION,
         position:"absolute",
-
-        background: "red",
       }}
     >
-
+      <CarSprite
+        height={"100%"}
+        width={"100%"}
+        face_direction={battleFaceDirection}
+      />
     </div>
   );
 }
