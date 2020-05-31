@@ -1,7 +1,7 @@
 import store from "../../redux/app_state";
 import {BATTLE_SCREEN} from "../screen_constants";
-import {ENEMY_STATS} from "./battle_constants";
-import {ATTACK_IN_BATTLE, DEFEND_IN_BATTLE} from "../../redux/action_types";
+import {BATTLE_STATUS, ENEMY_STATS} from "./battle_constants";
+import {ATTACK_IN_BATTLE, DEFEND_IN_BATTLE, GO_TO_MAP, WIN_BATTLE} from "../../redux/action_types";
 
 export default function handle_battle(battle) {
 
@@ -14,17 +14,20 @@ export default function handle_battle(battle) {
     if (battle_keys.includes(keydown_event.key)) {
       keydown_event.preventDefault();
 
+      const state = store.getState()
+      if (state.battle.battle_state === BATTLE_STATUS.WON){
+        store.dispatch({type:GO_TO_MAP})
+      }
+
       if (keydown_event.key === "z") {
-        battle_turn(keydown_event.key);
+        battle_turn(state);
       } else if (keydown_event.key === "x") {
-        console.log("x")
+        store.dispatch({type:GO_TO_MAP});
       }
     }
   })
 
-  function battle_turn() {
-
-    const state = store.getState()
+  function battle_turn(state) {
 
     const {
       screen
@@ -50,7 +53,13 @@ export default function handle_battle(battle) {
 
     const battle_won = damage_done >= enemy_life;
     if (battle_won) {
-      // won battle
+      const won_action ={
+        type: WIN_BATTLE,
+        payload: {},
+      }
+
+      store.dispatch(won_action);
+      return;
     }
 
     const attack_action = {

@@ -15,6 +15,12 @@ export const INFO_BOX_HEIGHT = "40%";
 export const INFO_BOX_VERTICAL_POSITION = "35%";
 export const INFO_BOX_HORIZONTAL_POSITION = "5%";
 
+export const BATTLE_STATUS = {
+  ACTIVE: "active",
+  LOST: "lost",
+  WON: "won",
+}
+
 export const ENEMY_STATS = {
   1:{
     attack: 10,
