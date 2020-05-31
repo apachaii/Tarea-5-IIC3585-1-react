@@ -1,8 +1,8 @@
-import { CHANGE_SCREEN } from "./action_types";
+import {GO_TO_MAP, START_BATTLE} from "./action_types";
 import {BATTLE_SCREEN, WORLD_SCREEN} from "../game/screen_constants";
 
 const initialState = {
-  screen : BATTLE_SCREEN,
+  screen : WORLD_SCREEN,
 }
 
 const screenReducer = (
@@ -10,10 +10,15 @@ const screenReducer = (
   action,
 ) => {
   switch (action.type) {
-    case CHANGE_SCREEN:
+    case START_BATTLE:
       return {
         ...state,
-        screen: action.payload.screen,
+        screen: BATTLE_SCREEN,
+      }
+    case GO_TO_MAP:
+      return {
+        ...state,
+        screen: WORLD_SCREEN,
       }
     default:
       return state
