@@ -13,14 +13,11 @@ function BattleScreen() {
       <ControlsBar/>
       <div
         style={{
-
           height: BATTLE_SCREEN_HEIGHT,
           width: BATTLE_SCREEN_WIDTH,
           margin: "0px auto",
 
           position: "relative",
-
-          background: "grey", // for debuging TODO delete
         }}
       >
         <EnemyBox/>

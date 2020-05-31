@@ -3,18 +3,20 @@ import PropTypes from "prop-types";
 
 import WorldScreen from "./world_screen";
 import BattleScreen from "./battle_screen";
-import {BATTLE_SCREEN, WORLD_SCREEN} from "./screen_constants";
-import {START_BATTLE} from "../redux/action_types";
-import store from "../redux/app_state";
+import {BATTLE_SCREEN, TITLE_SCREEN, WORLD_SCREEN} from "./screen_constants";
+import TitleScreen from "./title_screen";
 
 function Game(props) {
   const {screen} = props;
 
   let CurrentScreen;
   switch(screen){
+    case (TITLE_SCREEN):
+      CurrentScreen = TitleScreen;
+      break;
     case (WORLD_SCREEN):
       CurrentScreen = WorldScreen;
-      break
+      break;
     case (BATTLE_SCREEN):
       CurrentScreen = BattleScreen;
       break;
@@ -24,21 +26,6 @@ function Game(props) {
 
   return (
     <React.Fragment>
-      <button // for testing, TODO delete
-        onClick={
-          ()=>{
-            const action = {
-              type: START_BATTLE,
-              payload: {
-                enemy_level: 1,
-                starting_text: "Test Dog."
-              },
-            };
-
-            store.dispatch(action);
-          }
-        }
-      />
       <CurrentScreen/>
     </React.Fragment>
   );

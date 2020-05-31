@@ -1,13 +1,16 @@
-import { CHANGE_POSITION } from "./action_types";
+import {CHANGE_POSITION, START_GAME} from "./action_types";
+import get_level from "../game/world_screen/levels";
 
 const initialState = {
   level: 1,
 
   character_horizontal_position: 0,
-  character_vertical_position: 6*40,
+  character_vertical_position: 0,
   player_face_direction: 'right',
 
   map_scroll: 0,
+
+  events_active_state:[],
 }
 
 const worldReducer = (
@@ -20,9 +23,19 @@ const worldReducer = (
         ...state,
         ...action.payload,
       }
+
+    case START_GAME:{
+      const level_one = get_level(1);
+      const events_active_state = new Array(level_one.events.length).fill(true);
+      return {
+        level: 1,
+        ...level_one.start_position,
+        events_active_state,
+      }
+    }
+
     default:
       return state
   }
 }
-
 export default worldReducer;

@@ -8,6 +8,7 @@ import Player from "./player"
 
 
 import {MAP_SCREEN_HEIGHT, MAP_SCREEN_WIDTH} from "./world_constants"
+import Events from "./events";
 
 function WorldScreen() {
   return (
@@ -26,6 +27,7 @@ function WorldScreen() {
       >
         <Map/>
         <Player/>
+        <Events/>
       </div>
     </React.Fragment>
   )

@@ -1,41 +1,51 @@
 import store from "../../redux/app_state";
 import {BATTLE_SCREEN} from "../screen_constants";
 import {BATTLE_STATUS, ENEMY_STATS} from "./battle_constants";
-import {ATTACK_IN_BATTLE, DEFEND_IN_BATTLE, GO_TO_MAP, WIN_BATTLE} from "../../redux/action_types";
+import {
+  ATTACK_IN_BATTLE,
+  DEFEND_IN_BATTLE,
+  GO_TO_MAP,
+  GO_TO_TITLE,
+  LOST_BATTLE,
+  WIN_BATTLE
+} from "../../redux/action_types";
 
 export default function handle_battle(battle) {
 
   const battle_keys = [
     "z",
     "x",
-  ]
+  ];
 
   window.addEventListener('keydown', (keydown_event) => {
     if (battle_keys.includes(keydown_event.key)) {
       keydown_event.preventDefault();
 
       const state = store.getState()
-      if (state.battle.battle_state === BATTLE_STATUS.WON){
-        store.dispatch({type:GO_TO_MAP})
+      if (state.screen.screen !== BATTLE_SCREEN) {
+        return;
       }
 
-      if (keydown_event.key === "z") {
-        battle_turn(state);
-      } else if (keydown_event.key === "x") {
-        store.dispatch({type:GO_TO_MAP});
+      switch (state.battle.battle_state) {
+        case (BATTLE_STATUS.WON):
+          store.dispatch({type:GO_TO_MAP});
+          return;
+
+        case (BATTLE_STATUS.LOST):
+          store.dispatch({type:GO_TO_TITLE});
+          return;
+
+        default:
+          if (keydown_event.key === "z") {
+            battle_turn(state);
+          } else if (keydown_event.key === "x") {
+            store.dispatch({type:GO_TO_MAP});
+          }
       }
     }
   })
 
   function battle_turn(state) {
-
-    const {
-      screen
-    } = state.screen;
-
-    if (screen !== BATTLE_SCREEN) {
-      return;
-    }
 
     // Attack
     const {
@@ -84,7 +94,13 @@ export default function handle_battle(battle) {
 
     const battle_lost = current_life <= damage_received;
     if (battle_lost){
-      // lost battle
+      const lost_action ={
+        type: LOST_BATTLE,
+        payload: {},
+      }
+
+      store.dispatch(lost_action);
+      return;
     }
 
     const defend_action = {

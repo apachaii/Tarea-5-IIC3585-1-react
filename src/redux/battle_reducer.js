@@ -1,4 +1,4 @@
-import {ATTACK_IN_BATTLE, DEFEND_IN_BATTLE, START_BATTLE, WIN_BATTLE} from "./action_types";
+import {ATTACK_IN_BATTLE, DEFEND_IN_BATTLE, LOST_BATTLE, START_BATTLE, WIN_BATTLE} from "./action_types";
 import {BATTLE_STATUS, ENEMY_STATS} from "../game/battle_screen/battle_constants";
 
 const initialState = {
@@ -68,12 +68,27 @@ const battleReducer = (
       const added_battle_text = [
         ...battle_text,
         `You defeated your enemy, press [z] or [x] to return to the map`,
-      ]
+      ];
 
       return {
         ...state,
         battle_state: BATTLE_STATUS.WON,
         enemy_life: 0,
+        battle_text: added_battle_text,
+      }
+    }
+
+    case (LOST_BATTLE):{
+      const {battle_text} = state;
+
+      const added_battle_text = [
+        ...battle_text,
+        `You lost the battle, press [z] or [x] to return to the title screen`,
+      ];
+
+      return {
+        ...state,
+        battle_state: BATTLE_STATUS.LOST,
         battle_text: added_battle_text,
       }
     }

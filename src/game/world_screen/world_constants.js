@@ -9,3 +9,7 @@ export const PLAYER_WIDTH = PLAYER_HEIGHT*PLAYER_HEIGHT_WIDTH_RATIO;
 
 export const TILE_SIZE = PLAYER_HEIGHT;
 export const SCROLL_DISTANCE = 0.3;
+
+export const EVENTS_TYPES={
+  ENEMY: "enemy",
+}

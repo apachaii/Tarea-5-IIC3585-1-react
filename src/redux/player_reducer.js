@@ -1,4 +1,4 @@
-import {DEFEND_IN_BATTLE} from "./action_types";
+import {DEFEND_IN_BATTLE, LOST_BATTLE, START_GAME} from "./action_types";
 
 const initialState = {
   max_life: 100,
@@ -27,6 +27,15 @@ const playerReducer = (
         current_life: current_life-damage_received,
       }
     }
+
+    case (LOST_BATTLE):
+      return {
+        ...state,
+        current_life: 0,
+      }
+
+    case (START_GAME):
+      return {...initialState};
 
     default:
       return state
