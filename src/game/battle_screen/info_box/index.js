@@ -1,29 +1,10 @@
-import React from "react";
-import {
-  INFO_BOX_HEIGHT,
-  INFO_BOX_HORIZONTAL_POSITION,
-  INFO_BOX_VERTICAL_POSITION,
-  INFO_BOX_WIDTH
-} from "../battle_constants";
+import {connect} from "react-redux";
+import InfoBox from "./InfoBox";
 
-function InfoBox() {
-  return (
-    <div
-      style={{
-        width: INFO_BOX_WIDTH,
-        height: INFO_BOX_HEIGHT,
-
-        marginLeft: INFO_BOX_HORIZONTAL_POSITION,
-        marginTop: INFO_BOX_VERTICAL_POSITION,
-
-        position:"absolute",
-
-        background: "green",
-      }}
-    >
-
-    </div>
-  );
+function mapStateToProps(state) {
+  return {
+    battle_info: state.battle.battle_text,
+  }
 }
 
-export default InfoBox;
+export default connect(mapStateToProps)(InfoBox);

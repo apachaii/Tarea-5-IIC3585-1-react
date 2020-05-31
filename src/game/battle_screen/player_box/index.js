@@ -17,10 +17,9 @@ function PlayerBox() {
         width: BATTLE_BOX_WIDTH,
         height: BATTLE_BOX_HEIGHT,
 
-
+        position:"absolute",
         marginTop: BATTLE_BOX_VERTICAL_POSITION,
         marginLeft: PLAYER_VERTICAL_POSITION,
-        position:"absolute",
       }}
     >
       <CarSprite
