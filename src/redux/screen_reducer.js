@@ -1,5 +1,6 @@
 import { CHANGE_SCREEN } from "./action_types";
-import {BATTLE_SCREEN, WORLD_SCREEN} from "../game/screen_constants";
+// import {BATTLE_SCREEN, WORLD_SCREEN} from "../game/screen_constants";
+import {BATTLE_SCREEN, } from "../game/screen_constants";
 
 const initialState = {
   screen : BATTLE_SCREEN,

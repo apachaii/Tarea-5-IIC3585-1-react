@@ -10,16 +10,16 @@ import store from "../redux/app_state";
 function Game(props) {
   const {screen} = props;
 
-  let Current_screen;
+  let CurrentScreen;
   switch(screen){
     case (WORLD_SCREEN):
-      Current_screen = WorldScreen;
+      CurrentScreen = WorldScreen;
       break
     case (BATTLE_SCREEN):
-      Current_screen = BattleScreen;
+      CurrentScreen = BattleScreen;
       break;
     default:
-      Current_screen = WorldScreen;
+      CurrentScreen = WorldScreen;
   }
 
   return (
@@ -38,7 +38,7 @@ function Game(props) {
           }
         }
       />
-      <Current_screen/>
+      <CurrentScreen/>
     </React.Fragment>
   );
 }
