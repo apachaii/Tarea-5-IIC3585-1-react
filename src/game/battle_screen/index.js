@@ -2,6 +2,8 @@ import React from "react";
 import {BATTLE_SCREEN_HEIGHT, BATTLE_SCREEN_WIDTH} from "./battle_constants";
 
 import EnemyBox from "./enemy_box";
+import PlayerBox from "./player_box";
+import InfoBox from "./info_box";
 
 function BattleScreen() {
   return (
@@ -18,6 +20,8 @@ function BattleScreen() {
       }}
     >
       <EnemyBox/>
+      <PlayerBox/>
+      <InfoBox/>
     </div>
   )
 }
