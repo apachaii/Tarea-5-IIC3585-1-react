@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import {PLAYER_HEIGHT, PLAYER_HEIGHT_WIDTH_RATIO} from "../world_constants"
 
-import {ReactComponent as Chasis} from "./chasis.svg"
-import {ReactComponent as Wheels} from "./wheels.svg"
+import {ReactComponent as Chasis} from "../../../assets/chasis.svg"
+import {ReactComponent as Wheels} from "../../../assets/wheels.svg"
 
 const equipment_color = [
   "black",

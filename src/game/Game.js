@@ -23,7 +23,7 @@ function Game(props) {
   }
 
   return (
-    <div>
+    <React.Fragment>
       <button // for testing, TODO delete
         onClick={
           ()=>{
@@ -39,7 +39,7 @@ function Game(props) {
         }
       />
       <Current_screen/>
-    </div>
+    </React.Fragment>
   );
 }
 

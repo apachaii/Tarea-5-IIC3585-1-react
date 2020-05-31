@@ -1,0 +1,2 @@
+export const BATTLE_SCREEN_WIDTH = 800;
+export const BATTLE_SCREEN_HEIGHT = 520;
