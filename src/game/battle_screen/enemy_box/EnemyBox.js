@@ -7,6 +7,7 @@ import {
   ENEMY_VERTICAL_POSITION
 } from "../battle_constants";
 import PropTypes from "prop-types";
+import LifeBox from "../LifeBox";
 
 const dogImageStyle = {
   width: "100%",
@@ -64,17 +65,7 @@ class EnemyBox extends React.Component {
         }}
       >
         {DogImage}
-        <div
-          style={{
-            bottom: 0,
-            background: "white",
-            position: "absolute",
-          }}
-        >
-          <p style={{margin: 0}}>
-            {`${this.props.enemy_life}/${this.props.enemy_total_life}`}
-          </p>
-        </div>
+        <LifeBox current_life={this.props.enemy_life} total_life={this.props.enemy_total_life}/>
       </div>
     );
   }

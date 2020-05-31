@@ -2,9 +2,9 @@ import React from "react";
 import {BATTLE_SCREEN_HEIGHT, BATTLE_SCREEN_WIDTH} from "./battle_constants";
 
 import ControlsBar from "./controls_bar";
-import PlayerBox from "./player_box";
 import InfoBox from "./info_box";
 import EnemyBox from "./enemy_box";
+import PlayerBox from "./player_box";
 
 function BattleScreen() {
   return (
