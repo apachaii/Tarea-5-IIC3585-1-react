@@ -17,7 +17,6 @@ import {WORLD_SCREEN} from "../screen_constants";
 const RIGHT_SCROLL_START_POINT = MAP_SCREEN_WIDTH * (1 - SCROLL_DISTANCE);
 const LEFT_SCROLL_START_POINT = MAP_SCREEN_WIDTH * SCROLL_DISTANCE;
 
-// return the squares in [width location]
 function get_occupied_tiles(horizontal_position, vertical_position,) {
   const upper_coord = Math.floor(vertical_position / TILE_SIZE);
   const lower_coord = Math.ceil((vertical_position+PLAYER_HEIGHT) / TILE_SIZE) - 1;
@@ -32,6 +31,7 @@ function get_occupied_tiles(horizontal_position, vertical_position,) {
     right_coord,
   }
 }
+
 function find_tile_traversability(used_tiles,tile_type) {
   if (used_tiles[tile_type]){
     return used_tiles[tile_type]?.traversable;
@@ -39,7 +39,7 @@ function find_tile_traversability(used_tiles,tile_type) {
   return true;
 }
 
-export default function handle_input(world) {
+export default function handle_movement(world) {
 
   const move_keys = [
     "ArrowUp",
@@ -47,6 +47,14 @@ export default function handle_input(world) {
     "ArrowDown",
     "ArrowLeft",
   ]
+
+  window.addEventListener('keydown', (keydown_event) => {
+    if (move_keys.includes(keydown_event.key)) {
+      keydown_event.preventDefault();
+
+      movement(keydown_event.key);
+    }
+  })
 
   function movement(key) {
 
@@ -57,7 +65,7 @@ export default function handle_input(world) {
     } = state.screen;
 
     if (screen !== WORLD_SCREEN){
-      return
+      return;
     }
 
     let {
@@ -197,14 +205,6 @@ export default function handle_input(world) {
 
     store.dispatch(action);
   }
-
-  window.addEventListener('keydown', (keydown_event) => {
-    if (move_keys.includes(keydown_event.key)) {
-      keydown_event.preventDefault();
-
-      movement(keydown_event.key);
-    }
-  })
 
   return world
 }

@@ -49,8 +49,8 @@ function CarSprite(props) {
 }
 
 CarSprite.propTypes = {
-  height: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired,
+  height: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired,
   face_direction: PropTypes.string.isRequired,
 
   /*equipped_chasis: PropTypes.number,

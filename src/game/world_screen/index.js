@@ -1,6 +1,6 @@
 import React from "react";
 
-import handle_input from "./input";
+import handle_movement from "./movement";
 
 import DataBar from "./data_bar";
 import Map from "./map"
@@ -31,4 +31,4 @@ function WorldScreen() {
   )
 }
 
-export default handle_input(WorldScreen)
+export default handle_movement(WorldScreen)

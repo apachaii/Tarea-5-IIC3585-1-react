@@ -27,7 +27,6 @@ export function InfoBox(props) {
       {
         battle_info.map(
           (info, index) => {
-            console.log(info)
             return <p key={index}>{info}</p>
           }
         )

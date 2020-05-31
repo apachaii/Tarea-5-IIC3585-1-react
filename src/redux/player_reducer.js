@@ -1,9 +1,8 @@
+import {DEFEND_IN_BATTLE} from "./action_types";
+
 const initialState = {
   max_life: 100,
   current_life: 100,
-
-  max_special_attack: 20,
-  current_special_attack: 20,
 
   equipped_chasis: null,
   equipped_wheels: null,
@@ -17,6 +16,18 @@ const playerReducer = (
   action,
   ) => {
   switch (action.type) {
+
+    case (DEFEND_IN_BATTLE): {
+      const {damage_received} = action.payload;
+      const {current_life} = state;
+
+
+      return {
+        ...state,
+        current_life: current_life-damage_received,
+      }
+    }
+
     default:
       return state
   }

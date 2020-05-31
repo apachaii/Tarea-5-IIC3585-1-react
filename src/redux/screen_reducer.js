@@ -10,10 +10,6 @@ const screenReducer = (
   state = initialState,
   action,
 ) => {
-  console.log(
-    state,
-    action
-  )
   switch (action.type) {
     case CHANGE_SCREEN:
       return {

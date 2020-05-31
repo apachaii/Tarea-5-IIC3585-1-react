@@ -48,7 +48,7 @@ class EnemyBox extends React.Component {
       DogImage = (
         <img
           src={this.state.image_source}
-          alt={"A dog's Image"}
+          alt={"A dog"}
           style={dogImageStyle}
         />
       )

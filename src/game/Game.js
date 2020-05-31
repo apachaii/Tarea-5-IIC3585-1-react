@@ -40,7 +40,6 @@ function Game(props) {
               type: START_BATTLE,
               payload: {
                 enemy_level: 1,
-                enemy_total_life: 200,
                 starting_text: "And evil dog appears",
               },
             };

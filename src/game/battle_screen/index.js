@@ -5,6 +5,7 @@ import ControlsBar from "./controls_bar";
 import InfoBox from "./info_box";
 import EnemyBox from "./enemy_box";
 import PlayerBox from "./player_box";
+import handle_battle from "./battle";
 
 function BattleScreen() {
   return (
@@ -30,4 +31,5 @@ function BattleScreen() {
   )
 }
 
-export default BattleScreen;
+
+export default handle_battle(BattleScreen);

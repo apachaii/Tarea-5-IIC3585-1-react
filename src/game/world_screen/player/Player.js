@@ -25,8 +25,8 @@ function Player(props) {
   // const face_direction = faces_direction[player_face_direction];
 
   const sprite_style = {
-    height: PLAYER_HEIGHT,
-    width: PLAYER_HEIGHT * PLAYER_HEIGHT_WIDTH_RATIO,
+    height: `${PLAYER_HEIGHT}px`,
+    width: `${PLAYER_HEIGHT * PLAYER_HEIGHT_WIDTH_RATIO}px`,
     face_direction: player_face_direction,
   }
 
