@@ -20,7 +20,6 @@ function Events(props) {
     >
       {
         current_level_info.events.map((event, index)=>{
-          console.log(events_active_state)
           if (events_active_state[index]){
             switch (event.type) {
               case "enemy":

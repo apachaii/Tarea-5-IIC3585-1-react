@@ -12,8 +12,8 @@ function EnemyEvent(props) {
         position: "absolute",
         width:TILE_SIZE,
         height:TILE_SIZE,
-        marginTop: vertical_position*TILE_SIZE,
         marginLeft: horizontal_position*TILE_SIZE,
+        marginTop: vertical_position*TILE_SIZE,
       }}
     >
       <Dog
