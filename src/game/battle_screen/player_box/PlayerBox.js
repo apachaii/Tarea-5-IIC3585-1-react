@@ -10,7 +10,7 @@ import {
 } from "../battle_constants";
 
 import CarSprite from "../../../general_components/CarSprite";
-import {LEVEL_COLORS} from "../../world_screen/general_constants";
+import {LEVEL_COLORS} from "../../general_constants";
 
 const battleFaceDirection = "right";
 

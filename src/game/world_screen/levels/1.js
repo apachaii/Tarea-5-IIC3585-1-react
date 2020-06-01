@@ -51,7 +51,7 @@ const level = {
     {
       type: EVENTS_TYPES.UPGRADE,
       upgrade_type: UPGRADE_TYPES.CHASIS,
-      level: 2,
+      level: 1,
       horizontal_position: 10,
       vertical_position: 10,
     },
@@ -67,7 +67,7 @@ const level = {
     {
       type: EVENTS_TYPES.UPGRADE,
       upgrade_type: UPGRADE_TYPES.WHEELS,
-      level: 2,
+      level: 1,
       horizontal_position: 39,
       vertical_position: 1,
     },
