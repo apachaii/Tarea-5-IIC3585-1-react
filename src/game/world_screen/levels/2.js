@@ -1,6 +1,6 @@
 import Background from '../../../assets/mountains-clipart-transparent-background-22.png';
 
-import {EVENTS_TYPES, TILE_SIZE, UPGRADE_TYPES} from "../world_constants";
+import {TILE_SIZE} from "../world_constants";
 
 const level = {
   start_position: {

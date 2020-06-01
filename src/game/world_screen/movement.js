@@ -254,6 +254,9 @@ export default function handle_movement(world) {
                 }
               });
               break;
+
+            default:
+              return;
           }
         }
       }
