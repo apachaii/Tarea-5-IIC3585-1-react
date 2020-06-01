@@ -14,7 +14,7 @@ function TitleScreen() {
     >
       <h1>Car vs Dogs</h1>
       <h2>React Edition</h2>
-      <p>Press [z] or [x] to start</p>
+      <p>Press [space] to start</p>
     </div>
   );
 }

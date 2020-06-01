@@ -1,5 +1,5 @@
 import store from "../../redux/app_state";
-import {CHANGE_POSITION, START_BATTLE} from "../../redux/action_types";
+import {CHANGE_POSITION, GET_UPGRADE, NEXT_LEVEL, START_BATTLE} from "../../redux/action_types";
 
 import {
   EVENTS_TYPES,
@@ -210,6 +210,7 @@ export default function handle_movement(world) {
     const {events_active_state} = state.world;
     const final_real_horizontal_position = new_horizontal_position - map_scroll;
     events.forEach((event, index) => {
+
       if (events_active_state[index]) {
         const {horizontal_position, vertical_position, type} = event;
         const event_horizontal_position = horizontal_position*TILE_SIZE;
@@ -219,8 +220,8 @@ export default function handle_movement(world) {
           final_real_horizontal_position <= event_horizontal_position + TILE_SIZE &&
           event_vertical_position - PLAYER_HEIGHT <= new_vertical_position &&
           new_vertical_position <= event_vertical_position + TILE_SIZE;
+
         if (is_player_in_contact) {
-          console.log(index);
           switch (type) {
             case (EVENTS_TYPES.ENEMY):
               store.dispatch({
@@ -232,8 +233,27 @@ export default function handle_movement(world) {
                   character_horizontal_position: event.return_horizontal_position * TILE_SIZE,
                   character_vertical_position: event.return_vertical_position * TILE_SIZE,
                 }
-              }
-            );
+              });
+              break;
+
+            case (EVENTS_TYPES.UPGRADE):
+              store.dispatch({
+                type: GET_UPGRADE,
+                payload: {
+                  ...event,
+                  index,
+                }
+              });
+              break;
+
+            case (EVENTS_TYPES.NEXT_LEVEL):
+              store.dispatch({
+                type: NEXT_LEVEL,
+                payload:{
+                  ...event,
+                }
+              });
+              break;
           }
         }
       }

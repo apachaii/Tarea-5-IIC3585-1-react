@@ -9,6 +9,7 @@ import { TILE_SIZE } from "../world_constants";
 function Map(props) {
   const { level, map_scroll } = props;
   const current_level_info = get_level(level);
+  console.log(current_level_info.background);
   return (
     <React.Fragment>
       <div // Background

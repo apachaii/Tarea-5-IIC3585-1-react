@@ -5,8 +5,7 @@ import {TITLE_SCREEN} from "../screen_constants";
 export default function handle_start(start) {
 
   const start_keys = [
-    "z",
-    "x",
+    " ",
   ];
 
   window.addEventListener('keydown', (keydown_event) => {
@@ -14,6 +13,8 @@ export default function handle_start(start) {
     if (state.screen.screen !== TITLE_SCREEN){
       return;
     }
+
+    keydown_event.preventDefault();
 
     if (start_keys.includes(keydown_event.key)) {
       store.dispatch(

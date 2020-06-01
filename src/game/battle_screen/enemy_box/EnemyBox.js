@@ -1,13 +1,15 @@
 import React from "react";
-import {ReactComponent as Dog} from "../../../assets/pet-bottle.svg";
+import PropTypes from "prop-types";
 import {
   BATTLE_BOX_HEIGHT,
   BATTLE_BOX_VERTICAL_POSITION,
   BATTLE_BOX_WIDTH,
   ENEMY_VERTICAL_POSITION
 } from "../battle_constants";
-import PropTypes from "prop-types";
+
 import LifeBox from "../LifeBox";
+
+import {ReactComponent as Dog} from "../../../assets/pet-bottle.svg";
 
 const dogImageStyle = {
   width: "100%",
@@ -43,7 +45,7 @@ class EnemyBox extends React.Component {
       <Dog
         style={dogImageStyle}
       />
-    ); // taken from here https://es.wikipedia.org/wiki/Archivo:Dog.svg
+    );
     if (this.state.successful_fetch) {
       DogImage = (
         <img

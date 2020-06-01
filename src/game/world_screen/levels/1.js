@@ -1,4 +1,4 @@
-import {EVENTS_TYPES, TILE_SIZE} from "../world_constants";
+import {EVENTS_TYPES, TILE_SIZE, UPGRADE_TYPES} from "../world_constants";
 
 const level = {
   start_position: {
@@ -48,6 +48,35 @@ const level = {
       return_horizontal_position: 23,
       return_vertical_position: 10,
     },
+    {
+      type: EVENTS_TYPES.UPGRADE,
+      upgrade_type: UPGRADE_TYPES.CHASIS,
+      level: 2,
+      horizontal_position: 10,
+      vertical_position: 10,
+    },
+    {
+      type: EVENTS_TYPES.ENEMY,
+      level: 3,
+      horizontal_position: 37,
+      vertical_position: 1,
+      starting_text: "This dog cries over how pure the world will become after your demise",
+      return_horizontal_position: 35,
+      return_vertical_position: 1,
+    },
+    {
+      type: EVENTS_TYPES.UPGRADE,
+      upgrade_type: UPGRADE_TYPES.WHEELS,
+      level: 2,
+      horizontal_position: 39,
+      vertical_position: 1,
+    },
+    {
+      type: EVENTS_TYPES.NEXT_LEVEL,
+      level: 2,
+      horizontal_position: 39,
+      vertical_position: 6,
+    },
   ],
   used_tiles: {
     0: undefined, // nothing
@@ -76,7 +105,7 @@ const level = {
   },
   tiles: [
     [2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 2, 2,],
-    [0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 2, 3, 3, 3, 2,],
+    [0, 0, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 2, 2, 2, 3, 3, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,],
     [0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 2, 2, 2, 0, 0, 2, 2, 2, 2, 2, 3, 3, 2, 1, 2, 2, 2, 2, 1, 2, 3, 3, 3, 3,],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 3, 2, 1, 2, 2, 3, 2, 1, 2, 3, 3, 3, 3,],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 2, 1, 2, 3, 3, 2, 1, 2, 3, 3, 2, 2,],

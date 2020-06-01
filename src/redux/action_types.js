@@ -9,3 +9,7 @@ export const ATTACK_IN_BATTLE = "attack_in_battle";
 export const DEFEND_IN_BATTLE = "defend_in_battle";
 export const WIN_BATTLE = "win_battle";
 export const LOST_BATTLE = "lost_battle";
+
+export const GET_UPGRADE = "get_upgrade";
+
+export const NEXT_LEVEL = "next_level";

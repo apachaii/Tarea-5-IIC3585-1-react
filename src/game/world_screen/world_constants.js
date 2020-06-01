@@ -12,4 +12,10 @@ export const SCROLL_DISTANCE = 0.3;
 
 export const EVENTS_TYPES={
   ENEMY: "enemy",
+  UPGRADE: "upgrade",
+  NEXT_LEVEL: "next_level",
+}
+export const UPGRADE_TYPES = {
+  CHASIS: "chasis",
+  WHEELS: "wheels",
 }

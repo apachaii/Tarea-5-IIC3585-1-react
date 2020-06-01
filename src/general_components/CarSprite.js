@@ -9,20 +9,20 @@ const faces_direction = {
   "left": "scaleX(1)",
 }
 
-// TODO car colors
-
 function CarSprite(props) {
   const {
     height,
     width,
     face_direction,
+    chasis_color,
+    wheels_color,
   } = props;
 
   const sprite_style = {
     height,
     width,
   }
-  return(
+  return (
     <div
       style={{
         height,
@@ -34,14 +34,14 @@ function CarSprite(props) {
         style={{
           position: "absolute",
           ...sprite_style,
-          fill: "#000000",
+          fill: chasis_color,
         }}
       />
       <Wheels
         style={{
           position: "absolute",
           ...sprite_style,
-          fill: "#000000",
+          fill: wheels_color,
         }}
       />
     </div>
@@ -53,14 +53,14 @@ CarSprite.propTypes = {
   width: PropTypes.string.isRequired,
   face_direction: PropTypes.string.isRequired,
 
-  /*equipped_chasis: PropTypes.number,
-  equipped_wheels: PropTypes.number,*/
+  chasis_color: PropTypes.string.isRequired,
+  wheels_color: PropTypes.string.isRequired,
 };
-/*
-Car.defaultProps = {
+
+CarSprite.defaultProps = {
   equipped_chasis: 0,
   equipped_wheels: 0,
 };
-*/
+
 
 export default CarSprite;

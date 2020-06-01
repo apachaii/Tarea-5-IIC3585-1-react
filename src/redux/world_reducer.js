@@ -1,4 +1,4 @@
-import {CHANGE_POSITION, START_BATTLE, START_GAME, WIN_BATTLE} from "./action_types";
+import {CHANGE_POSITION, GET_UPGRADE, NEXT_LEVEL, START_BATTLE, START_GAME, WIN_BATTLE} from "./action_types";
 import get_level from "../game/world_screen/levels";
 
 const initialState = {
@@ -36,6 +36,17 @@ const worldReducer = (
       }
     }
 
+    case NEXT_LEVEL:{
+      const {level} = action.payload;
+      const current_level = get_level(level);
+      const events_active_state = new Array(current_level.events.length).fill(true);
+      return {
+        level,
+        ...current_level.start_position,
+        events_active_state,
+      }
+    }
+
     case START_BATTLE:
       return {
         ...state,
@@ -51,6 +62,17 @@ const worldReducer = (
       return {
         ...state,
         events_active_state: new_events_active_state
+      }
+    }
+
+    case GET_UPGRADE:{
+      const { index } = action.payload;
+      const { events_active_state } = state;
+      const new_events_active_state = [...events_active_state];
+      new_events_active_state[index] = false;
+      return {
+        ...state,
+        events_active_state: new_events_active_state,
       }
     }
 
