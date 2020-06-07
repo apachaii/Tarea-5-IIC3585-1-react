@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {ReactComponent as Chasis} from "../../../assets/chasis.svg";
-import {ReactComponent as Wheels} from "../../../assets/wheels.svg";
+import {ReactComponent as Chasis} from "../../../../assets/chasis.svg";
+import {ReactComponent as Wheels} from "../../../../assets/wheels.svg";
 
-import {LEVEL_COLORS} from "../../general_constants";
+import {LEVEL_COLORS} from "../../../general_constants";
 import {TILE_SIZE, UPGRADE_TYPES} from "../world_constants";
 
 function UpgradeEvent(props) {

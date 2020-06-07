@@ -1,6 +1,6 @@
-import store from "../../redux/app_state";
-import {START_GAME} from "../../redux/action_types";
-import {TITLE_SCREEN} from "../screen_constants";
+import store from "../../../redux/app_state";
+import {START_GAME} from "../../../redux/action_types";
+import {TITLE_SCREEN} from "../../screen_constants";
 
 export default function handle_start(start) {
 

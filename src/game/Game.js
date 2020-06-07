@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import WorldScreen from "./world_screen";
-import BattleScreen from "./battle_screen";
+import WorldScreen from "./screens/world_screen";
+import BattleScreen from "./screens/battle_screen";
 import {BATTLE_SCREEN, TITLE_SCREEN, WORLD_SCREEN} from "./screen_constants";
-import TitleScreen from "./title_screen";
+import TitleScreen from "./screens/title_screen";
 
 function Game(props) {
   const {screen} = props;

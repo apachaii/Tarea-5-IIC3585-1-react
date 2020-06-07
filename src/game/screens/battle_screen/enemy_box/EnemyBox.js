@@ -9,7 +9,7 @@ import {
 
 import LifeBox from "../LifeBox";
 
-import {ReactComponent as Dog} from "../../../assets/pet-bottle.svg";
+import {ReactComponent as Dog} from "../../../../assets/pet-bottle.svg";
 
 const dogImageStyle = {
   width: "100%",

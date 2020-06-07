@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import MapTile from "./MapTile";
+import {TILE_SIZE} from "../../world_constants";
 
 function MapRow(props) {
   const { row, current_level_info } = props;
   return(
-    <div style={{height: 40}}>
+    <div style={{height: TILE_SIZE}}>
       {
         row.map(
           (tile, index) => {

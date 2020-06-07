@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {TILE_SIZE} from "../world_constants";
-import {ReactComponent as Next} from "../../../assets/next.svg";
+import {ReactComponent as Dog} from "../../../../assets/pet-bottle.svg";
 
-function NextLevelEvent(props) {
+function EnemyEvent(props) {
   const {vertical_position, horizontal_position} = props;
   return (
     <div
@@ -16,7 +16,7 @@ function NextLevelEvent(props) {
         marginTop: vertical_position*TILE_SIZE,
       }}
     >
-      <Next
+      <Dog
         style={{
           width: TILE_SIZE,
           height: TILE_SIZE,
@@ -27,9 +27,9 @@ function NextLevelEvent(props) {
   );
 }
 
-NextLevelEvent.propTypes ={
+EnemyEvent.propTypes ={
   horizontal_position: PropTypes.number.isRequired,
   vertical_position: PropTypes.number.isRequired,
 }
 
-export default NextLevelEvent;
+export default EnemyEvent;

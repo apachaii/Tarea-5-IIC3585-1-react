@@ -20,8 +20,8 @@ function BattleScreen() {
           position: "relative",
         }}
       >
-        <EnemyBox/>
         <PlayerBox/>
+        <EnemyBox/>
         <InfoBox/>
       </div>
     </React.Fragment>

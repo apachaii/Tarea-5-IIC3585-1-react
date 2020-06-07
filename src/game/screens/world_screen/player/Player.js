@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {PLAYER_HEIGHT, PLAYER_HEIGHT_WIDTH_RATIO} from "../world_constants"
 
 import CarSprite from "../../../general_components/CarSprite";
-import {LEVEL_COLORS} from "../../general_constants";
+import {LEVEL_COLORS} from "../../../general_constants";
 
 function Player(props) {
   const {

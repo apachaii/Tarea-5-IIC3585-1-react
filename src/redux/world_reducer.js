@@ -1,5 +1,5 @@
 import {CHANGE_POSITION, GET_UPGRADE, NEXT_LEVEL, START_BATTLE, START_GAME, WIN_BATTLE} from "./action_types";
-import get_level from "../game/world_screen/levels";
+import get_level from "../game/screens/world_screen/levels";
 
 const initialState = {
   level: 1,

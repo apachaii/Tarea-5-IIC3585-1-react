@@ -1,5 +1,5 @@
-import store from "../../redux/app_state";
-import {BATTLE_SCREEN} from "../screen_constants";
+import store from "../../../redux/app_state";
+import {BATTLE_SCREEN} from "../../screen_constants";
 import {BATTLE_STATUS, ENEMY_STATS} from "./battle_constants";
 import {
   ATTACK_IN_BATTLE,
@@ -7,8 +7,8 @@ import {
   GO_TO_MAP,
   GO_TO_TITLE,
   LOST_BATTLE,
-  WIN_BATTLE
-} from "../../redux/action_types";
+  WIN_BATTLE,
+} from "../../../redux/action_types";
 
 export default function handle_battle(battle) {
 
@@ -93,6 +93,7 @@ export default function handle_battle(battle) {
     const damage_received = attack - equipped_chasis ?? 0;
 
     const battle_lost = current_life <= damage_received;
+
     if (battle_lost){
       const lost_action ={
         type: LOST_BATTLE,

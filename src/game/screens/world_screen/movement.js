@@ -1,5 +1,5 @@
-import store from "../../redux/app_state";
-import {CHANGE_POSITION, GET_UPGRADE, NEXT_LEVEL, START_BATTLE} from "../../redux/action_types";
+import store from "../../../redux/app_state";
+import {CHANGE_POSITION, GET_UPGRADE, NEXT_LEVEL, START_BATTLE} from "../../../redux/action_types";
 
 import {
   EVENTS_TYPES,
@@ -12,7 +12,7 @@ import {
   TILE_SIZE,
 } from "./world_constants";
 import get_level from "./levels"
-import {WORLD_SCREEN} from "../screen_constants";
+import {WORLD_SCREEN} from "../../screen_constants";
 
 
 const RIGHT_SCROLL_START_POINT = MAP_SCREEN_WIDTH * (1 - SCROLL_DISTANCE);
@@ -205,10 +205,10 @@ export default function handle_movement(world) {
 
     store.dispatch(action);
 
-    // execute events
+   // execute events
     const {events} = level_info;
     const {events_active_state} = state.world;
-    const final_real_horizontal_position = new_horizontal_position - map_scroll;
+    const  final_real_horizontal_position = new_horizontal_position - map_scroll;
     events.forEach((event, index) => {
 
       if (events_active_state[index]) {

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {ReactComponent as Chasis} from "../assets/chasis.svg";
-import {ReactComponent as Wheels} from "../assets/wheels.svg";
+import {ReactComponent as Chasis} from "../../assets/chasis.svg";
+import {ReactComponent as Wheels} from "../../assets/wheels.svg";
 
 const faces_direction = {
   "right": "scaleX(-1)",
@@ -56,11 +56,5 @@ CarSprite.propTypes = {
   chasis_color: PropTypes.string.isRequired,
   wheels_color: PropTypes.string.isRequired,
 };
-
-CarSprite.defaultProps = {
-  equipped_chasis: 0,
-  equipped_wheels: 0,
-};
-
 
 export default CarSprite;

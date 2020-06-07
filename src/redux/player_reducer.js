@@ -1,5 +1,5 @@
 import {DEFEND_IN_BATTLE, GET_UPGRADE, LOST_BATTLE, START_GAME} from "./action_types";
-import {UPGRADE_TYPES} from "../game/world_screen/world_constants";
+import {UPGRADE_TYPES} from "../game/screens/world_screen/world_constants";
 
 const initialState = {
   max_life: 100,
@@ -16,8 +16,8 @@ const playerReducer = (
   switch (action.type) {
 
     case (DEFEND_IN_BATTLE): {
-      const {damage_received} = action.payload;
       const {current_life} = state;
+      const {damage_received} = action.payload;
 
       return {
         ...state,

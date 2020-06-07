@@ -1,5 +1,5 @@
 import {ATTACK_IN_BATTLE, DEFEND_IN_BATTLE, LOST_BATTLE, START_BATTLE, WIN_BATTLE} from "./action_types";
-import {BATTLE_STATUS, ENEMY_STATS} from "../game/battle_screen/battle_constants";
+import {BATTLE_STATUS, ENEMY_STATS} from "../game/screens/battle_screen/battle_constants";
 
 const initialState = {
   enemy_level: 1,
@@ -54,7 +54,7 @@ const battleReducer = (
       const added_battle_text = [
         ...battle_text,
         `You received ${damage_received} damage, you have ${current_life-damage_received} left.`,
-      ]
+      ];
 
       return {
         ...state,

@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 import { PLAYER_HEIGHT } from "../../world_constants";
 
 import {ReactComponent as Tree} from "./tile_sprites/Tree.svg"
+import {ReactComponent as Bird} from "./tile_sprites/bird.svg"
 
 const TILE_SIZE = PLAYER_HEIGHT;
 
 const sprites = {
-  "tree":  Tree// Taken from here https://www.flaticon.com/free-icon/pine-tree_483683
+  "tree":  Tree,
+  "bird":  Bird
 }
 
 function MapTile(props) {
@@ -30,6 +32,8 @@ function MapTile(props) {
         Sprite &&
         <Sprite
           style={{
+            height: TILE_SIZE,
+            width: TILE_SIZE,
             fill: tile_info.sprite.fill,
           }}
         />
