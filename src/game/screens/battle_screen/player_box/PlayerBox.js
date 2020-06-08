@@ -32,6 +32,8 @@ function PlayerBox(props) {
         position: "absolute",
         marginTop: BATTLE_BOX_VERTICAL_POSITION,
         marginLeft: PLAYER_VERTICAL_POSITION,
+
+        backgroundColor: "#ddd",
       }}
     >
       <CarSprite

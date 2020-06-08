@@ -45,6 +45,6 @@ export const ENEMY_STATS = {
   5:{
     attack: 30,
     defense: 50,
-    starting_life: 500,
+    starting_life: 400,
   },
 }

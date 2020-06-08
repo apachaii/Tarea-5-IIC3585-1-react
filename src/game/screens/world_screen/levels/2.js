@@ -99,8 +99,6 @@ const level = {
       return_vertical_position: 1,
     },
 
-
-
     {
       type: EVENTS_TYPES.NEXT_LEVEL,
       level: 3,

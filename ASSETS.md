@@ -15,3 +15,6 @@ https://www.flaticon.com/free-icon/right-arrow_271226?term=arrow&page=1&position
 
 For the mountains:
 http://clipart-library.com/clip-art/mountains-clipart-transparent-background-22.htm
+
+For the universe:
+https://pixabay.com/es/illustrations/universo-cielo-estrella-espacio-2742113/
