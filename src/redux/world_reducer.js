@@ -27,10 +27,10 @@ const worldReducer = (
       }
 
     case START_GAME:{
-      const level_one = get_level(5);
+      const level_one = get_level(1);
       const events_active_state = new Array(level_one.events.length).fill(true);
       return {
-        level: 5,
+        level: 1,
         ...level_one.start_position,
         events_active_state,
       }
